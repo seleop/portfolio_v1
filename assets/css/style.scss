@@ -1,0 +1,105 @@
+@import "./font";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    .bgr {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        video {
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            filter: brightness(0.5);
+        }
+        &.active{
+            display: none;
+        }
+    }
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0.1;
+        background-image: url(../img/overlay.gif);
+        z-index: 1000;
+    }
+}
+
+.intro__section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .intro__section__hello-text {
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        span {
+            display: block;
+            font-family: "Montserrat", sans-serif;
+            font-size: 22rem;
+            line-height: 25rem;
+            font-weight: 700;
+            -webkit-text-stroke: 1px;
+            -webkit-text-stroke-color: #333333;
+            /* background */
+            background-image: url(../img/wave.png);
+            background-position: 100% 430px;
+            background-repeat: no-repeat;
+            background-clip: text;
+            background-size: cover;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #ffffff;
+            &.active {
+                background-image: none;
+                -webkit-text-stroke: unset;
+                -webkit-text-fill-color: unset;
+                letter-spacing: -2rem !important;
+                color: #ffffff;
+                transition: .7s ease-out;
+            }
+        }
+    }
+    .intro__section__iamheedo-text {
+        padding-right: 1.2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-content: flex-start;
+        overflow: hidden;
+        span {
+            font-family: "Montserrat", sans-serif;
+            font-size: 22rem;
+            font-weight: 700;
+            letter-spacing: -2rem;
+            line-height: 26rem;
+            color: #ffffff;
+            &:nth-child(4){
+                margin-left: 10rem;
+            }
+        }
+        &.active {
+            display: none;
+        }
+    }
+}
+
+.aboutme__section {
+    width: 100%;
+    height: 100vh;
+}
