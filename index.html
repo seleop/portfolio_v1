@@ -1,51 +1,162 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="bgr active">
-            <video autoplay muted loop>
-                <source src="./assets/img/space.mp4">
-            </video>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="bgr active">
+                <video autoplay muted loop id="bgrvideo">
+                    <source src="./assets/img/space.mp4" />
+                </video>
+            </div>
+            <section class="section1 intro__section">
+                <div class="intro__section__hello-text">
+                    <span>G</span>
+                    <span>r</span>
+                    <span>e</span>
+                    <span>e</span>
+                    <span>t</span>
+                    <span>i</span>
+                    <span>n</span>
+                    <span>g</span>
+                    <span>s</span>
+                    <span id="marks">!</span>
+                </div>
+                <div class="intro__section__iamheedo-text active">
+                    <span>I</span>
+                    <span>'</span>
+                    <span>m</span>
+                    <span>H</span>
+                    <span>E</span>
+                    <span>E</span>
+                    <span>D</span>
+                    <span>O</span>
+                </div>
+                <div class="earth active">
+                    <img src="./assets/img/earth.png" alt="earth" />
+                </div>
+                <div class="moon active">
+                    <img src="./assets/img/moon.png" alt="moon active" />
+                </div>
+            </section>
+
+            <section class="section2 aboutme__section">
+                <div class="section2__introduce__me__eng">
+                    <strong class="sec2middletext sec2eng"
+                        >I will embrace new challenges every moment. Just like the limitless possibilities of the universe.</strong
+                    >
+                </div>
+                <div class="section2__introduce__me__kor">
+                    <strong class="sec2middletext sec2kor">저는 매 순간 도전 할 것입니다. 우주의 무한한 가능성처럼</strong>
+                </div>
+            </section>
+
+            <section class="section3 keyword__section">
+                <div class="section3__container">
+                    <div class="section3__typo_line typo_line2">
+                        <span>MarkUP</span>
+                        <div class="typobox typobox1">
+                            <video autoplay muted loop>
+                                <source src="./assets/video/short1.mp4" alt="shortvideo1" />
+                            </video>
+                        </div>
+                        <svg id="triangle" width="145" height="140" viewBox="0 0 157 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_16_62)">
+                                <path
+                                    d="M81.2743 80.1589L0 0H155.281L76.7417 75.7795C104.406 102.994 129.648 128.02 157 155H4.8452L81.2743 80.1589Z"
+                                    fill="white"
+                                />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_16_62">
+                                    <rect width="157" height="155" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span>And</span>
+                    </div>
+                    <div class="section3__typo_line typo_line3">
+                        <div class="typobox typobox2">
+                            <video autoplay muted loop>
+                                <source src="./assets/video/short2.mp4" alt="shortvideo2" />
+                            </video>
+                        </div>
+                        <div class="typo-horizontal-line typo-horizontal-line1"></div>
+                        <svg id="shine1" width="167" height="167" viewBox="0 0 167 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M155.403 83.4782L118.649 81.2408V81.2516C101.197 79.2785 87.4137 65.2165 85.8674 47.6397L83.6222 11.0142L81.3723 47.6939C79.7163 65.5629 65.396 79.7718 47.4713 81.2423L11.0762 83.4581L46.5451 85.623C64.9538 86.6729 79.7704 101.128 81.3863 119.386L83.6238 156.133L85.7978 120.427C86.9313 101.686 101.96 86.693 120.718 85.6199C120.718 85.6307 120.718 85.6106 120.718 85.6199L155.403 83.4782Z"
+                                fill="white"
+                            />
+                        </svg>
+                        <svg id="shine2" width="167" height="167" viewBox="0 0 167 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M155.403 83.4782L118.649 81.2408V81.2516C101.197 79.2785 87.4137 65.2165 85.8674 47.6397L83.6222 11.0142L81.3723 47.6939C79.7163 65.5629 65.396 79.7718 47.4713 81.2423L11.0762 83.4581L46.5451 85.623C64.9538 86.6729 79.7704 101.128 81.3863 119.386L83.6238 156.133L85.7978 120.427C86.9313 101.686 101.96 86.693 120.718 85.6199C120.718 85.6307 120.718 85.6106 120.718 85.6199L155.403 83.4782Z"
+                                fill="white"
+                            />
+                        </svg>
+                        <span>UX</span>
+                        <div class="typobox typobox3">
+                            <video autoplay muted loop>
+                                <source src="./assets/video/short3.mp4" alt="shortvideo3" />
+                            </video>
+                        </div>
+                    </div>
+                    <div class="section3__typo_line typo_line4">
+                        <svg id="flower1" width="119" height="131" viewBox="0 0 119 131" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M95.2 31.1316C100.558 28.0493 104.885 27.0218 108.182 28.0493C111.685 28.8712 114.158 30.5152 115.6 32.9811C117.042 35.2415 117.249 38.0156 116.218 41.3034C115.188 44.5912 111.994 47.7764 106.636 50.8587C101.485 53.7356 95.0969 56.0987 87.4727 57.9481C80.0546 59.5921 70.5758 62.1606 59.0364 65.654L58.7273 64.7293C66.9697 56.9206 73.8728 50.1394 79.4364 44.3858C85 38.4265 90.2546 34.0086 95.2 31.1316ZM59.3455 64.7293C70.2667 68.0171 79.6424 70.5858 87.4727 72.4352C95.3031 74.2846 101.794 76.6477 106.945 79.5246C112.303 82.6069 115.394 85.8947 116.218 89.3881C117.249 92.6759 116.939 95.5528 115.291 98.0187C114.055 100.279 111.788 101.82 108.491 102.642C105.194 103.464 100.867 102.334 95.5091 99.2516C90.3577 96.3747 85.1031 92.1622 79.7455 86.614C74.3878 80.8603 67.3818 73.8736 58.7273 65.654L59.3455 64.7293ZM59.6546 65.3458C62.3333 76.2368 64.806 85.5865 67.0728 93.3952C69.3395 101.204 70.5758 107.985 70.7818 113.739C70.5758 119.903 69.2364 124.219 66.7637 126.685C64.2909 129.15 61.6122 130.383 58.7273 130.383C56.0486 130.383 53.5758 129.253 51.3091 126.993C49.0424 124.527 47.9091 120.109 47.9091 113.739C47.9091 107.779 49.0424 101.101 51.3091 93.7034C53.5758 86.3058 56.0486 76.8533 58.7273 65.3458H59.6546ZM58.7273 65.0375L59.3455 65.9622C51.1031 73.5653 44.2 80.3465 38.6364 86.3058C33.0728 92.265 27.8182 96.683 22.8728 99.5599C17.5151 102.642 13.0849 103.772 9.58184 102.95C6.28488 101.923 3.91517 100.176 2.47275 97.7105C1.03033 95.45 0.824269 92.7787 1.85457 89.6964C2.88488 86.4086 6.07881 83.1206 11.4364 79.8328C16.5879 76.9559 22.8728 74.5928 30.2909 72.7434C37.9151 70.894 47.394 68.3253 58.7273 65.0375ZM22.5637 31.4399C27.7151 34.3168 32.9697 38.6321 38.3273 44.3858C43.6849 49.934 50.5879 56.818 59.0364 65.0375L58.7273 65.9622C48.0122 62.6744 38.6364 60.1058 30.6 58.2564C22.7697 56.2015 16.2788 53.8383 11.1273 51.1669C5.97579 48.0846 2.88488 44.8994 1.85457 41.6116C1.03033 38.1183 1.33942 35.1387 2.78184 32.6728C4.01821 30.4124 6.28488 28.8712 9.58184 28.0493C12.8788 27.2274 17.206 28.3575 22.5637 31.4399ZM59.0364 0.308105C61.9213 0.308105 64.4969 1.54105 66.7637 4.00694C69.0304 6.47281 70.1637 10.7881 70.1637 16.9528C70.1637 22.7065 69.0304 29.385 66.7637 36.9881C64.7031 44.3858 62.2304 53.8383 59.3455 65.3458H58.4182C55.7395 54.4547 53.2667 45.105 51 37.2964C48.7333 29.4877 47.6 22.7065 47.6 16.9528C47.6 10.7881 48.8364 6.47281 51.3091 4.00694C53.7818 1.54105 56.3577 0.308105 59.0364 0.308105Z"
+                                fill="white"
+                            />
+                        </svg>
+                        <div class="typo-vertical-line"></div>
+                        <svg id="flower2" width="119" height="131" viewBox="0 0 119 131" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M95.2 31.1316C100.558 28.0493 104.885 27.0218 108.182 28.0493C111.685 28.8712 114.158 30.5152 115.6 32.9811C117.042 35.2415 117.249 38.0156 116.218 41.3034C115.188 44.5912 111.994 47.7764 106.636 50.8587C101.485 53.7356 95.0969 56.0987 87.4727 57.9481C80.0546 59.5921 70.5758 62.1606 59.0364 65.654L58.7273 64.7293C66.9697 56.9206 73.8728 50.1394 79.4364 44.3858C85 38.4265 90.2546 34.0086 95.2 31.1316ZM59.3455 64.7293C70.2667 68.0171 79.6424 70.5858 87.4727 72.4352C95.3031 74.2846 101.794 76.6477 106.945 79.5246C112.303 82.6069 115.394 85.8947 116.218 89.3881C117.249 92.6759 116.939 95.5528 115.291 98.0187C114.055 100.279 111.788 101.82 108.491 102.642C105.194 103.464 100.867 102.334 95.5091 99.2516C90.3577 96.3747 85.1031 92.1622 79.7455 86.614C74.3878 80.8603 67.3818 73.8736 58.7273 65.654L59.3455 64.7293ZM59.6546 65.3458C62.3333 76.2368 64.806 85.5865 67.0728 93.3952C69.3395 101.204 70.5758 107.985 70.7818 113.739C70.5758 119.903 69.2364 124.219 66.7637 126.685C64.2909 129.15 61.6122 130.383 58.7273 130.383C56.0486 130.383 53.5758 129.253 51.3091 126.993C49.0424 124.527 47.9091 120.109 47.9091 113.739C47.9091 107.779 49.0424 101.101 51.3091 93.7034C53.5758 86.3058 56.0486 76.8533 58.7273 65.3458H59.6546ZM58.7273 65.0375L59.3455 65.9622C51.1031 73.5653 44.2 80.3465 38.6364 86.3058C33.0728 92.265 27.8182 96.683 22.8728 99.5599C17.5151 102.642 13.0849 103.772 9.58184 102.95C6.28488 101.923 3.91517 100.176 2.47275 97.7105C1.03033 95.45 0.824269 92.7787 1.85457 89.6964C2.88488 86.4086 6.07881 83.1206 11.4364 79.8328C16.5879 76.9559 22.8728 74.5928 30.2909 72.7434C37.9151 70.894 47.394 68.3253 58.7273 65.0375ZM22.5637 31.4399C27.7151 34.3168 32.9697 38.6321 38.3273 44.3858C43.6849 49.934 50.5879 56.818 59.0364 65.0375L58.7273 65.9622C48.0122 62.6744 38.6364 60.1058 30.6 58.2564C22.7697 56.2015 16.2788 53.8383 11.1273 51.1669C5.97579 48.0846 2.88488 44.8994 1.85457 41.6116C1.03033 38.1183 1.33942 35.1387 2.78184 32.6728C4.01821 30.4124 6.28488 28.8712 9.58184 28.0493C12.8788 27.2274 17.206 28.3575 22.5637 31.4399ZM59.0364 0.308105C61.9213 0.308105 64.4969 1.54105 66.7637 4.00694C69.0304 6.47281 70.1637 10.7881 70.1637 16.9528C70.1637 22.7065 69.0304 29.385 66.7637 36.9881C64.7031 44.3858 62.2304 53.8383 59.3455 65.3458H58.4182C55.7395 54.4547 53.2667 45.105 51 37.2964C48.7333 29.4877 47.6 22.7065 47.6 16.9528C47.6 10.7881 48.8364 6.47281 51.3091 4.00694C53.7818 1.54105 56.3577 0.308105 59.0364 0.308105Z"
+                                fill="white"
+                            />
+                        </svg>
+                        <span>Web</span>
+                        <div class="typo-horizontal-line typo-horizontal-line2"></div>
+                        <span id="unique">UniQue</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section4 ambition_section">
+                <div class="section4__appeal passionate-wrap">
+                    <div class="section4__appeal__title passionate">
+                        <strong>P</strong><span id="passionateword">assionate</span>
+                    </div>
+                    <p>주어진 환경에 탁월함을 목표로 열정을 가지고 가겠습니다.</p>
+                </div>
+                <div class="section4__appeal">
+                    <div class="section4__appeal__title"><strong>F</strong><span>lexible</span></div>
+                    <p>기술의 발전과 새로운 도전을 받아들이고 유연하게 적응해나가는 자세를 갖겠습니다.</p>
+                </div>
+                <div class="section4__appeal">
+                    <div class="section4__appeal__title"><strong>C</strong><span>reative</span></div>
+                    <p>창의적인 아이디어로 놀라움을 계속 선보이도록 노력하겠습니다.</p>
+                </div>
+                <div class="section4__appeal">
+                    <div class="section4__appeal__title"><strong>C</strong><span>ollaborative</span></div>
+                    <p>역경과 궂은 환경 속에서도 협업을 중시하며 상황을 타개해나가는 협업 플레이어가 되겠습니다.</p>
+                </div>
+            </section>
         </div>
-        <section class="section1 intro__section">
-            <div class="intro__section__hello-text">
-                <span>G</span>
-                <span>r</span>
-                <span>e</span>
-                <span>e</span>
-                <span>t</span>
-                <span>i</span>
-                <span>n</span>
-                <span>g</span>
-                <span>s</span>
-                <span id="marks">!</span>
-            </div>
-            <div class="intro__section__iamheedo-text active">
-                <span>I</span>
-                <span>'</span>
-                <span>m</span>
-                <span>H</span>
-                <span>E</span>
-                <span>E</span>
-                <span>D</span>
-                <span>O</span>
-            </div>
-        </section>
 
-        <section class="section2 aboutme__section">
+        <div id="cursor">
+            <p>scroll</p>
+        </div>
 
-        </section>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="./assets/js/main.js"></script>
-</body>
+        <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/split-type"></script>
+        <script src="./assets/js/main.js"></script>
+    </body>
 </html>
