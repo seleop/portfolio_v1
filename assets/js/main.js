@@ -68,13 +68,13 @@ function moveGreetings() {
 
     let isActive = false;
     window.addEventListener("scroll", () => {
-        if (window.scrollY >= 1700 && isActive === false) {
+        if (window.scrollY >= 1580 && isActive === false) {
             const greetingstl = gsap.timeline();
-            greetingstl.to("#marks", { scale: "1.15", y: -100, duration: 0.5, ease: "power1.out" });
-            greetingstl.to("#marks", { scale: "0.6", y: 400, duration: 0.3, ease: "circ.out" });
+            greetingstl.to("#exclamation", { scale: "1.15", y: -100, duration: 0.5, ease: "power1.out" });
+            greetingstl.to("#exclamation", { scale: "0.1", y: 200, opacity:0,duration: 0.3, ease: "circ.out" });
             setTimeout(() => {
                 document.querySelector("body").classList.add("active");
-                document.querySelectorAll(".intro__section__hello-text > span").forEach((ele) => {
+                document.querySelectorAll(".greetings-words").forEach((ele) => {
                     ele.classList.add('active')
                 })
                 document.querySelector(".intro__section__iamheedo-text").classList.remove('active');
@@ -96,7 +96,7 @@ function moveGreetings() {
                 })
                 gsap.from(".intro__section__iamheedo-text > span", {
                     duration: 2,
-                    letterSpacing: "3rem",
+                    letterSpacing: "2rem",
                     delay: 0.3,
                     stagger: 0.1,
                     ease: "power1.out",
@@ -192,31 +192,81 @@ function section3fnc(){
         gsap.from(ele, {
             scrollTrigger:{
                 trigger:ele,
-                start:"top 90%",
-                end :"bottom 60%",
+                start:"top 95%",
+                end :"bottom 70%",
                 scrub:true,
             },
             opacity : 0,
-            y : 100
+            y : 50,
+            rotateY:"7deg",
+            rotateX :"2deg",
         })
     })
-    typolines.forEach((ele) => {
-        gsap.from(ele, {
-            scrollTrigger:{
-                trigger:ele,
-                start:"top 70%",
-                end :"top 40%",
-                scrub:true,
-            },
-            rotateY:"2deg",
-            rotateX :"1deg"
-        })
+    gsap.from(".section3__typo_line > .typo-vertical-line", {
+        scrollTrigger:{
+            trigger:".typo_line3",
+            start:"top 90%",
+            end :"bottom 60%",
+            scrub:true,
+        },
+        height:10
+    })
+    const attitudeChars = new SplitType("#attitude", {type : "chars"})
+    gsap.to(attitudeChars.chars, {
+        scrollTrigger:{
+            trigger:".typo_line4",
+            start:"top 47%",
+            end :"top 6.5%",
+            scrub:true,
+        },
+        y:170,
+        stagger:0.1
+    })
+    const revAttitudeChars = new SplitType("#reverseAttitude", {type : "chars"})
+    gsap.from(revAttitudeChars.chars, {
+        scrollTrigger:{
+            trigger:".typo_line5",
+            start:"top 59%",
+            end :"top 20%",
+            scrub:true,
+        },
+        y:-170,
+        opacity:0,
+        rotateY:"0deg",
+        rotateX :"0deg",
+        stagger:0.1,
+        ease:"power3.out"
+    })
+    gsap.to(".typo_line5", {
+        scrollTrigger:{
+            trigger:".typo_line5",
+            start:"top 26%",
+            end :"center center",
+            scrub:true,
+        },
+        width:"45%",
+        y:420,
+        ease:"power4.out"
+    })
+
+    gsap.to("#reverseAttitude", {
+        scrollTrigger:{
+            trigger:".typo_line5",
+            start:"center center",
+            end :"200%",
+            scrub:true,
+        },
+        y:300,
+        autoAlpha:0
     })
 }
-function section4fnc(){
-    gsap.from('.passionate > strong', {
+
+
+
+function lookWordModule(ele, trigger, firstword, letterele){
+    gsap.from(ele, {
         scrollTrigger:{
-            trigger:".passionate",
+            trigger:trigger,
             start:"bottom 90%",
             end:"top 70%",
             scrub:true,
@@ -224,9 +274,9 @@ function section4fnc(){
         opacity:0,
         y:50,
     })
-    gsap.from('.passionate-wrap > p', {
+    gsap.from(firstword, {
         scrollTrigger:{
-            trigger:".passionate",
+            trigger:trigger,
             start:"bottom bottom",
             end:"top 70%",
             scrub:true,
@@ -235,10 +285,9 @@ function section4fnc(){
         opacity:0,
         y:20,
     })
-    const passtionateword = new SplitType("#passionateword", {type : "chars"})
-    gsap.from(passtionateword.chars, {
+    gsap.from(letterele, {
         scrollTrigger:{
-            trigger:".passionate",
+            trigger:trigger,
             start:"top 70%",
             end:"top center",
             scrub:true,
@@ -249,6 +298,17 @@ function section4fnc(){
         scale:1.4,
         stagger:0.1,
     })
+}
+function section4fnc(){
+    const passtionateword = new SplitType("#passionateword", {type : "chars"})
+    const flexibleword = new SplitType("#flexibleword", {type : "chars"})
+    const creativeword = new SplitType("#creativeword", {type : "chars"})
+    const collaborativeword = new SplitType("#collaborativeword", {type : "chars"})
+
+    lookWordModule(".passionate > strong", ".passionate", ".passionate-wrap > p", passtionateword.chars)
+    lookWordModule(".flexible > strong", ".flexible", ".flexible-wrap > p", flexibleword.chars)
+    lookWordModule(".creative > strong", ".creative", ".creative-wrap > p", creativeword.chars)
+    lookWordModule(".collaborative > strong", ".collaborative", ".collaborative-wrap > p", collaborativeword.chars)
 }
 function rotateElement(ele, deg, time){
     let currnetrotate = 0;
@@ -270,21 +330,65 @@ function expandwidth(ele, amount, time){
     }, time);
 }
 
-
-const cursor = document.querySelector("#cursor");
-document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-        x:e.clientX,
-        y:e.clientY,
-        duration:0.1,
+function functionCursor(){
+    const coordinates = {
+        x : 0,
+        y : 0
+    }
+    
+    const cursors = document.querySelectorAll('.cursor');
+    cursors.forEach((cursor) => {
+        cursor.x = 0,
+        cursor.y = 0
     })
-})
+
+    let isInsideearth = false;
+    window.addEventListener('mousemove', (e) => {
+        coordinates.x = e.clientX;
+        coordinates.y = e.clientY;
+    })
+    function animateCursor(){
+        let x = coordinates.x;
+        let y = coordinates.y;
+    
+        cursors.forEach((cursor, index) => {
+            cursor.style.left = x + "px";
+            cursor.style.top = y + "px";
+            cursor.style.scale = (cursors.length - index) / 30
+            cursor.style.zIndex = (cursors.length * 100) - index
+
+            if (isInsideearth = true){
+                cursor.style.backgroundColor = "orange"
+            } else {
+                cursor.style.backgroundColor = "black";
+            }
+            cursor.x = x;
+            cursor.y = y;
+    
+            const nextCursor = cursors[index + 1] || cursors[0];
+            x += (nextCursor.x - x) * 0.2;
+            y += (nextCursor.y - y) * 0.2;
+        })
+        requestAnimationFrame(animateCursor);
+    }
+
+    document.querySelector('.earth').addEventListener('mouseenter', () => {
+        isInsideearth = true;
+        console.log(isInsideearth)
+    })
+    document.querySelector('.earth').addEventListener('mouseleave', () => {
+        isInsideearth = false
+        console.log(isInsideearth)
+    })
+    animateCursor()
+}
 
 function animateInit() {
     moveGreetings();
     movesection2();
     section3fnc();
     section4fnc();
+
 }
 
 function functions(){
@@ -297,6 +401,7 @@ function functions(){
     rotateElement(flower2, -90, 1200)
     expandwidth(horizonLine1, 300, 3300)
     expandwidth(horizonLine2, 450, 2100)
+    // functionCursor();
 }
 animateInit();
 functions()

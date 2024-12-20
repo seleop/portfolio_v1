@@ -7,9 +7,9 @@
     box-sizing: border-box;
 }
 
-html {
-    cursor: none;
-}
+// html {
+//     cursor: none;
+// }
 ::-webkit-scrollbar {
     display: none;
 }
@@ -42,7 +42,7 @@ body {
         position: absolute;
         opacity: 0.1;
         background-image: url(../img/overlay.gif);
-        z-index: 1000;
+        z-index: 0;
     }
 }
 
@@ -60,12 +60,12 @@ body {
     .intro__section__hello-text {
         width: 100%;
         display: flex;
-        overflow: hidden;
+        // overflow: hidden;
         span {
             display: block;
             font-family: "Montserrat", sans-serif;
             font-size: 22rem;
-            line-height: 25rem;
+            line-height: 30rem;
             font-weight: 700;
             -webkit-text-stroke: 1px;
             -webkit-text-stroke-color: #333333;
@@ -82,8 +82,10 @@ body {
                 background-image: none;
                 -webkit-text-stroke: unset;
                 -webkit-text-fill-color: unset;
-                letter-spacing: -2rem !important;
                 color: #ffffff;
+                margin-right: -1.8rem;
+                transform: none !important;
+                opacity: 1 !important;
                 transition: 0.7s ease-out;
             }
         }
@@ -126,7 +128,7 @@ body {
     }
     .moon {
         position: absolute;
-        bottom: -70%;
+        bottom: -75%;
         right: -5%;
         width: 700px;
         img {
@@ -163,6 +165,7 @@ body {
         strong {
             display: block;
             font-family: "pretendard";
+            letter-spacing: 0.2rem;
             font-size: 1.6rem;
             font-weight: 300;
             color: #fff;
@@ -171,24 +174,28 @@ body {
 }
 
 .section3 {
-    padding: 200px 0;
-    .section3__container{
+    padding: 400px 0;
+    .section3__container {
+        transform: translateX(-72px);
         display: flex;
         flex-direction: column;
-        transform-style: preserve-3d;
-        perspective: 500px;
+        perspective: 410px;
         perspective-origin: left center;
-        .section3__typo_line{
+        .section3__typo_line {
+            width: 130%;
             display: flex;
+            flex-wrap: nowrap;
             align-items: center;
             gap: 2rem;
             transform-style: preserve-3d;
             font-size: 12rem;
             line-height: 12rem;
             font-family: "Playfair Display", serif;
-            color : #ffffff;
-            transform: rotateY(10deg) rotateX(5deg);
-            .typobox{
+            color: #ffffff;
+            transform: rotateY(12deg) rotateX(5deg);
+            position: relative;
+            z-index: 100;
+            .typobox {
                 width: 400px;
                 height: 142px;
                 margin-bottom: 48px;
@@ -198,21 +205,22 @@ body {
                     object-fit: cover;
                 }
             }
-            .typo-horizontal-line{
+            .typo-horizontal-line {
                 margin-top: 26px;
                 width: 10px;
                 height: 10px;
-                transition: .5s;
+                transition: 0.5s;
                 background-color: #ffffff;
             }
-            #triangle{
+            #triangle {
                 margin-top: 24px;
-                animation : rotateTriangle 1s 2s ease-out;
-                transition: .3s;
+                animation: rotateTriangle 1s 2s ease-out;
+                transition: 0.3s;
             }
-            #shine1, #shine2 {
+            #shine1,
+            #shine2 {
                 margin-top: 25px;
-                transition: .3s;
+                transition: 0.3s;
             }
             .typo-vertical-line {
                 width: 10px;
@@ -220,12 +228,49 @@ body {
                 background-color: #fff;
             }
             #unique {
-                color: #333333;
-                background-color: #fff;
+                color: #fff;
                 padding-bottom: 28px;
             }
-            #flower1, #flower2{
-                transition: .5s;
+            #flower1,
+            #flower2 {
+                transition: 0.5s;
+            }
+            #publishing {
+                color: #fff;
+                background: rgb(249, 206, 52);
+                background: linear-gradient(90deg, rgba(249, 206, 52, 1) 0%, rgba(238, 42, 123, 1) 50%, rgba(98, 40, 215, 1) 100%);
+            }
+            #typobox4 {
+                height: 12rem;
+                width: auto;
+                margin-top: 44px;
+            }
+            .attitude-wrap {
+                background-color: #fff;
+                overflow: hidden;
+                #attitude {
+                    color: #333333;
+                }
+            }
+        }
+        .typo_line4 {
+            margin-top: 1rem;
+        }
+        .typo_line5 {
+            justify-content: flex-end;
+            width: 135%;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 2rem;
+            font-size: 12rem;
+            line-height: 12rem;
+            font-family: "Playfair Display", serif;
+            transform: rotateY(12deg) rotateX(5deg) translateY(-60px);
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            #reverseAttitude {
+                color: #fff;
             }
         }
     }
@@ -237,14 +282,14 @@ body {
     gap: 40rem;
     flex-direction: column;
     align-items: center;
-    .section4__appeal{
+    .section4__appeal {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 8px;
         color: #fff;
-        .section4__appeal__title{
+        .section4__appeal__title {
             display: flex;
             align-items: flex-end;
             overflow: hidden;
@@ -253,7 +298,7 @@ body {
                 font-weight: 200;
                 line-height: 5rem;
                 font-size: 5rem;
-                transition: .1s;
+                transition: 0.1s;
             }
             span {
                 font-family: "lora";
@@ -268,9 +313,7 @@ body {
         }
     }
 }
-
-
-#cursor {
+.cursor {
     position: fixed;
     top: 0;
     left: 0;
@@ -280,10 +323,9 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: #0f0f0f;
-    z-index: 9999;
-    mix-blend-mode:difference;
+    background-color: #1a1a1a;
+    // mix-blend-mode:difference;
     p {
-        color : #fff;
+        color: #fff;
     }
 }

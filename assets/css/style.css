@@ -30,10 +30,6 @@
   box-sizing: border-box;
 }
 
-html {
-  cursor: none;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -69,7 +65,7 @@ body::before {
   position: absolute;
   opacity: 0.1;
   background-image: url(../img/overlay.gif);
-  z-index: 1000;
+  z-index: 0;
 }
 
 .intro__section {
@@ -87,13 +83,12 @@ body::before {
 .intro__section .intro__section__hello-text {
   width: 100%;
   display: flex;
-  overflow: hidden;
 }
 .intro__section .intro__section__hello-text span {
   display: block;
   font-family: "Montserrat", sans-serif;
   font-size: 22rem;
-  line-height: 25rem;
+  line-height: 30rem;
   font-weight: 700;
   -webkit-text-stroke: 1px;
   -webkit-text-stroke-color: #333333;
@@ -111,8 +106,10 @@ body::before {
   background-image: none;
   -webkit-text-stroke: unset;
   -webkit-text-fill-color: unset;
-  letter-spacing: -2rem !important;
   color: #ffffff;
+  margin-right: -1.8rem;
+  transform: none !important;
+  opacity: 1 !important;
   transition: 0.7s ease-out;
 }
 .intro__section .intro__section__iamheedo-text {
@@ -154,7 +151,7 @@ body::before {
 }
 .intro__section .moon {
   position: absolute;
-  bottom: -70%;
+  bottom: -75%;
   right: -5%;
   width: 700px;
 }
@@ -193,23 +190,26 @@ body::before {
 .section2 .section2__introduce__me__eng strong {
   display: block;
   font-family: "pretendard";
+  letter-spacing: 0.2rem;
   font-size: 1.6rem;
   font-weight: 300;
   color: #fff;
 }
 
 .section3 {
-  padding: 200px 0;
+  padding: 400px 0;
 }
 .section3 .section3__container {
+  transform: translateX(-72px);
   display: flex;
   flex-direction: column;
-  transform-style: preserve-3d;
-  perspective: 500px;
+  perspective: 410px;
   perspective-origin: left center;
 }
 .section3 .section3__container .section3__typo_line {
+  width: 130%;
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 2rem;
   transform-style: preserve-3d;
@@ -217,7 +217,9 @@ body::before {
   line-height: 12rem;
   font-family: "Playfair Display", serif;
   color: #ffffff;
-  transform: rotateY(10deg) rotateX(5deg);
+  transform: rotateY(12deg) rotateX(5deg);
+  position: relative;
+  z-index: 100;
 }
 .section3 .section3__container .section3__typo_line .typobox {
   width: 400px;
@@ -242,7 +244,8 @@ body::before {
   animation: rotateTriangle 1s 2s ease-out;
   transition: 0.3s;
 }
-.section3 .section3__container .section3__typo_line #shine1, .section3 .section3__container .section3__typo_line #shine2 {
+.section3 .section3__container .section3__typo_line #shine1,
+.section3 .section3__container .section3__typo_line #shine2 {
   margin-top: 25px;
   transition: 0.3s;
 }
@@ -252,12 +255,49 @@ body::before {
   background-color: #fff;
 }
 .section3 .section3__container .section3__typo_line #unique {
-  color: #333333;
-  background-color: #fff;
+  color: #fff;
   padding-bottom: 28px;
 }
-.section3 .section3__container .section3__typo_line #flower1, .section3 .section3__container .section3__typo_line #flower2 {
+.section3 .section3__container .section3__typo_line #flower1,
+.section3 .section3__container .section3__typo_line #flower2 {
   transition: 0.5s;
+}
+.section3 .section3__container .section3__typo_line #publishing {
+  color: #fff;
+  background: rgb(249, 206, 52);
+  background: linear-gradient(90deg, rgb(249, 206, 52) 0%, rgb(238, 42, 123) 50%, rgb(98, 40, 215) 100%);
+}
+.section3 .section3__container .section3__typo_line #typobox4 {
+  height: 12rem;
+  width: auto;
+  margin-top: 44px;
+}
+.section3 .section3__container .section3__typo_line .attitude-wrap {
+  background-color: #fff;
+  overflow: hidden;
+}
+.section3 .section3__container .section3__typo_line .attitude-wrap #attitude {
+  color: #333333;
+}
+.section3 .section3__container .typo_line4 {
+  margin-top: 1rem;
+}
+.section3 .section3__container .typo_line5 {
+  justify-content: flex-end;
+  width: 135%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  font-size: 12rem;
+  line-height: 12rem;
+  font-family: "Playfair Display", serif;
+  transform: rotateY(12deg) rotateX(5deg) translateY(-60px);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+.section3 .section3__container .typo_line5 #reverseAttitude {
+  color: #fff;
 }
 
 .section4 {
@@ -298,7 +338,7 @@ body::before {
   font-size: 1.2rem;
 }
 
-#cursor {
+.cursor {
   position: fixed;
   top: 0;
   left: 0;
@@ -308,10 +348,8 @@ body::before {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #0f0f0f;
-  z-index: 9999;
-  mix-blend-mode: difference;
+  background-color: #1a1a1a;
 }
-#cursor p {
+.cursor p {
   color: #fff;
 }/*# sourceMappingURL=style.css.map */
