@@ -47,6 +47,9 @@ body {
     }
 }
 
+.container {
+    background-color: #111111;
+}
 .intro__section {
     width: 100%;
     height: 100vh;
@@ -174,6 +177,172 @@ body {
     }
 }
 
+.halfsection {
+    padding: 100px 0 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-family: "pretendard";
+    .halfsection__grid-container {
+        width: 100%;
+        padding: 0 5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 300px);
+        column-gap: 2rem;
+        row-gap: 1rem;
+        .halfsection__grid-skills {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            filter: brightness(0.5) grayscale(0.7);
+            transition: 0.5s;
+            color: $pf--color--white;
+            z-index: 1;
+            strong {
+                transition: 0.3s;
+            }
+            .halfsection__grid-skills-inner {
+                width: 60%;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: 0.3s;
+                p {
+                    transition: 0.3s;
+                    text-align: center;
+                    line-height: 1.4rem;
+                }
+                .halfsection__skills-inner-imgwrap {
+                    width: 100px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            &::before,
+            &::after {
+                content: "";
+                opacity: 0;
+                width: 100%;
+                height: 120px;
+                transition: all 0.5s;
+                position: absolute;
+                left: 0;
+            }
+            &::before {
+                top: 0;
+                height: 100%;
+                background-image: linear-gradient(to top, transparent 10%, rgba(12, 13, 19, 0.3) 68%, rgba(12, 13, 19, 0.75) 97%);
+            }
+            &::after {
+                bottom: 0;
+                background-image: linear-gradient(to bottom, transparent 10%, rgba(12, 13, 19, 0.3) 68%, rgba(12, 13, 19, 0.75) 97%);
+            }
+            &:hover strong {
+                opacity: 0;
+            }
+            &:hover::after,
+            &:hover::before {
+                opacity: 1;
+            }
+            &:hover::after {
+                height: 50%;
+            }
+            &:hover .halfsection__grid-skills-inner {
+                opacity: 1;
+            }
+            &.active {
+                filter: brightness(1) grayscale(0);
+                transform: translateY(-5%) rotateX(25deg) !important;
+                box-shadow: 0px 30px 5px red;
+            }
+            &.noactive {
+                filter: brightness(0.2) grayscale(0.8);
+            }
+        }
+        .html {
+            grid-column: 2 / 4;
+            grid-row: 1 / 3;
+            background: #c02425;
+            background: -webkit-linear-gradient(to right, #f0cb35, #c02425);
+            background: linear-gradient(to right, #f0cb35, #c02425);
+        }
+        .css {
+            grid-column: 1 / 3;
+            grid-row: 2 / 4;
+            background: #8360c3; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2ebf91, #8360c3); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .scss {
+            grid-column: 3 / 5;
+            grid-row: 2 / 4;
+            background: #8a2387; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #f27121, #e94057, #8a2387); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #f27121, #e94057, #8a2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .js {
+            grid-column: 2 / 4;
+            grid-row: 3 / 5;
+            background: #cac531; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #d3be03, #cac531); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #d3be03, #cac531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .jqeury {
+            grid-column: 1 / 3;
+            grid-row: 4 / 6;
+            background: #373b44; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #4286f4, #373b44); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #4286f4, #373b44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .gsap {
+            grid-column: 3 / 5;
+            grid-row: 4 / 6;
+            background: #52c234; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #061700, #52c234); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #061700, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .react {
+            grid-column: 2 / 4;
+            grid-row: 5 / 7;
+            background: #2980b9; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #ffffff, #6dd5fa, #2980b9); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #ffffff, #6dd5fa, #2980b9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .photoshop {
+            grid-column: 1 / 3;
+            grid-row: 6 / 8;
+            background: #0f2027; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2c5364, #203a43, #0f2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .figma {
+            grid-column: 3 / 5;
+            grid-row: 6 / 8;
+            background: #1e130c; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #9a8478, #1e130c); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #9a8478, #1e130c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .git {
+            grid-column: 2 / 4;
+            grid-row: 7 / 9;
+            background: #232526; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    }
+}
+
 .section3 {
     padding: 400px 0;
     .section3__container {
@@ -278,9 +447,9 @@ body {
 }
 
 .section4 {
-    padding: 700px 0 300px 0;
-    display: flex;
+    padding: 500px 0;
     gap: 40rem;
+    display: flex;
     flex-direction: column;
     align-items: center;
     .section4__appeal {
@@ -316,167 +485,37 @@ body {
     }
 }
 
-.halfsection {
-    padding: 100px 0 0 0;
-    position: relative;
+.section5 {
+    padding: 200px 0;
     display: flex;
     justify-content: center;
-    font-family: "pretendard";
-    .halfsection__grid-container {
+    align-items: center;
+    .section5__works {
         width: 100%;
-        padding: 0 5rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(8, 300px);
-        column-gap: 2rem;
-        row-gap: 1rem;
-        .halfsection__grid-skills {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-transform: uppercase;
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            filter: brightness(0.5) grayscale(0.7);
-            transition: 0.5s;
-            color: $pf--color--white;
-            z-index: 1;
-            strong {
-                transition: .3s;
-            }
-            .halfsection__grid-skills-inner {
-                width: 60%;
-                position: absolute;
+        display: flex;
+        justify-content: center;
+        .section5__works_details {
+            display: none;
+            .section5__works_inner {
+                height: 100%;
                 display: flex;
                 flex-direction: column;
-                gap: 1.5rem;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                transition: 0.3s;
-                p {
-                    transition: .3s;
-                    text-align: center;
-                    line-height: 1.4rem;
-                }
-                .halfsection__skills-inner-imgwrap{
-                    width: 100px;
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
+                justify-content: space-between;
+                .section5__works_skills {
+                    display: flex;
+                    flex-direction: column;
                 }
             }
-            &::before,
-            &::after {
-                content: "";
-                opacity: 0;
+        }
+        .section5__works__img {
+            width: 100%;
+            height: 800px;
+            img {
                 width: 100%;
-                height: 120px;
-                transition: all 0.5s;
-                position: absolute;
-                left: 0;
-            }
-            &::before {
-                top: 0;
                 height: 100%;
-                background-image: linear-gradient(to top, transparent 10%, rgba(12, 13, 19, 0.3) 68%, rgba(12, 13, 19, 0.75) 97%);
+                object-fit: cover;
+                // transform: rotateY(-20deg) rotateX(10deg);
             }
-            &::after {
-                bottom: 0;
-                background-image: linear-gradient(to bottom, transparent 10%, rgba(12, 13, 19, 0.3) 68%, rgba(12, 13, 19, 0.75) 97%);
-            }
-            &:hover strong{
-                opacity: 0;
-            }
-            &:hover::after,
-            &:hover::before {
-                opacity: 1;
-            }
-            &:hover::after {
-                height: 50%;
-            }
-            &:hover .halfsection__grid-skills-inner {
-                opacity: 1;
-            }
-            &.active {
-                filter: brightness(1) grayscale(0);
-                transform: translateY(-5%) rotateX(25deg);
-            }
-            &.noactive {
-                filter: brightness(0.2) grayscale(0.8);
-            }
-        }
-        .html {
-            grid-column: 2 / 4;
-            grid-row: 1 / 3;
-            background: #c02425;
-            background: -webkit-linear-gradient(to right, #f0cb35, #c02425);
-            background: linear-gradient(to right, #f0cb35, #c02425);
-        }
-        .css {
-            grid-column: 1 / 3;
-            grid-row: 2 / 4;
-            background: #8360c3; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #2ebf91, #8360c3); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .scss {
-            grid-column: 3 / 5;
-            grid-row: 2 / 4;
-            background: #8a2387; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #f27121, #e94057, #8a2387); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #f27121, #e94057, #8a2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .js {
-            grid-column: 2 / 4;
-            grid-row: 3 / 5;
-            background: #cac531; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #d3be03, #cac531); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #d3be03, #cac531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .jqeury {
-            grid-column: 1 / 3;
-            grid-row: 4 / 6;
-            background: #373b44; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #4286f4, #373b44); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #4286f4, #373b44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .gsap {
-            grid-column: 3 / 5;
-            grid-row: 4 / 6;
-            background: #52c234; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #061700, #52c234); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #061700, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .react {
-            grid-column: 2 / 4;
-            grid-row: 5 / 7;
-            background: #2980b9; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #ffffff, #6dd5fa, #2980b9); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #ffffff, #6dd5fa, #2980b9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .photoshop {
-            grid-column: 1 / 3;
-            grid-row: 6 / 8;
-            background: #0f2027; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #2c5364, #203a43, #0f2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .figma {
-            grid-column: 3 / 5;
-            grid-row: 6 / 8;
-            background: #1e130c; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #9a8478, #1e130c); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #9a8478, #1e130c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .git {
-            grid-column: 2 / 4;
-            grid-row: 7 / 9;
-            background: #232526; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
     }
 }

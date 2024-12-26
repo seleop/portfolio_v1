@@ -8,21 +8,15 @@ const horizonLine2 = document.querySelector(".typo-horizontal-line2");
 const flower1 = document.querySelector("#flower1");
 const flower2 = document.querySelector("#flower2");
 
-function reverseVideo() {
-    const bgrvideo = document.querySelector("#bgrvideo");
-    bgrvideo.addEventListener("timeupdate", () => {
-        bgrvideo.playbackRate = 0.2;
-    });
-}
 
 function smoothScrolling() {
     const lenis = new Lenis({
-        duration: 2,
+        duration: 1.5,
     });
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
-        lenis.raf(time * 300);
+        lenis.raf(time * 400);
     });
     gsap.ticker.lagSmoothing(0);
 }
@@ -49,17 +43,16 @@ function moveGreetings() {
         stagger: 0.1,
         ease: "power1.out",
     });
-    let greetingtl = gsap.timeline({
-        scrollTrigger: {
+    const opening = gsap.to(".intro__section__hello-text > span", { 
+        scrollTrigger:{
             trigger: ".intro__section",
             start: "top top",
             end: "+=200%",
             scrub: true,
             pin: true,
-            pinSpacing: true,
         },
+        backgroundPosition: "56% 44px", 
     });
-    greetingtl.to(".intro__section__hello-text > span", { backgroundPosition: "56% 44px", ease: "sine.out" });
 
     let isActive = false;
     window.addEventListener("scroll", () => {
@@ -180,6 +173,55 @@ function movesection2() {
         ease: "power2.out",
     });
 }
+function skillsfnc() {
+    const skills = document.querySelectorAll(".halfsection__grid-skills");
+
+    for (let i = 0; i < skills.length; i++) {
+        skills[i].addEventListener("mouseenter", () => {
+            skills.forEach((ele) => {
+                ele.classList.add("noactive");
+                document.querySelectorAll(".halfsection__grid-skills-inner").forEach((ele) => {
+                    ele.style.transform = "none";
+                });
+            });
+            skills[i].classList.remove("noactive");
+            skills[i].classList.add("active");
+        });
+        skills[i].addEventListener("mouseleave", () => {
+            skills.forEach((ele) => {
+                ele.classList.remove("noactive");
+            });
+            skills[i].classList.remove("active");
+        });
+    }
+
+    const skill = gsap.utils.toArray(".halfsection__grid-skills");
+
+    skill.forEach((ele) => {
+        gsap.from(ele, {
+            scrollTrigger: {
+                trigger: ele,
+                start: "top bottom",
+                end: "top 70%",
+                scrub: true,
+            },
+            y: 50,
+        });
+    });
+
+    skill.forEach((ele) => {
+        gsap.to(ele, {
+            scrollTrigger: {
+                trigger: ele,
+                start: "bottom 15%",
+                end: "center top",
+                scrub: true,
+            },
+            scale: "0.5",
+        });
+    });
+}
+
 function section3fnc() {
     const typolines = gsap.utils.toArray(".section3__typo_line");
 
@@ -256,45 +298,6 @@ function section3fnc() {
     });
 }
 
-function section5fnc() {
-    const skills = document.querySelectorAll(".halfsection__grid-skills");
-
-    for (let i = 0; i < skills.length; i++) {
-        skills[i].addEventListener('mouseenter', () => {
-            skills.forEach((ele) => {
-                ele.classList.add('noactive');
-                document.querySelectorAll('.halfsection__grid-skills-inner').forEach((ele) => {
-                    ele.style.transform = "none"
-                })
-            })
-            skills[i].classList.remove('noactive');
-            skills[i].classList.add('active');
-        })
-        skills[i].addEventListener('mouseleave', () => {
-            skills.forEach((ele) => {
-                ele.classList.remove('noactive')
-            })
-            skills[i].classList.remove('active')
-        })
-    }
-
-    const skill = gsap.utils.toArray(".halfsection__grid-skills")
-
-    gsap.from(skill, {})
-    // skill.forEach(ele => {
-    //     gsap.from(ele, {
-    //         scrollTrigger:{
-    //             trigger:ele,
-    //             start:"top bottom",
-    //             end :"top 70%",
-    //             scrub:true,
-    //         },
-    //         opacity:0,
-    //         y:30,
-    //     })
-    // })
-}
-
 function lookWordModule(ele, trigger, firstword, letterele) {
     gsap.from(ele, {
         scrollTrigger: {
@@ -313,7 +316,7 @@ function lookWordModule(ele, trigger, firstword, letterele) {
             end: "top 70%",
             scrub: true,
         },
-        letterSpacing: "2rem",
+        letterSpacing: "1.2rem",
         opacity: 0,
         y: 20,
     });
@@ -331,6 +334,43 @@ function lookWordModule(ele, trigger, firstword, letterele) {
         stagger: 0.1,
     });
 }
+
+function showSection5() {
+    const section4Width = document.querySelector(".section4").offsetWidth;
+    const setting = {
+        trigger: ".section4",
+        start: "bottom bottom",
+        end: "100%",
+        scrub: true,
+    }
+    const show = gsap.timeline({
+        scrollTrigger:setting
+    })
+    show.to('.collaborative', {
+        x: section4Width / 1.7,
+        ease: "power1.out",
+    })
+    gsap.to(".collaborative-wrap > p", {
+        scrollTrigger: {
+            trigger: ".section4",
+            start: "bottom bottom",
+            end: "100%",
+            scrub: true,
+        },
+        x: -(section4Width / 1.4),
+        ease: "power1.out",
+    });
+    gsap.to("#bgrvideo", {
+        scrollTrigger: {
+            trigger: ".section4",
+            start: "bottom bottom",
+            end: "100%",
+            scrub: true,
+        },
+        opacity:0,
+        ease: "power1.out",
+    });
+}
 function section4fnc() {
     const passtionateword = new SplitType("#passionateword", { type: "chars" });
     const flexibleword = new SplitType("#flexibleword", { type: "chars" });
@@ -341,7 +381,12 @@ function section4fnc() {
     lookWordModule(".flexible > strong", ".flexible", ".flexible-wrap > p", flexibleword.chars);
     lookWordModule(".creative > strong", ".creative", ".creative-wrap > p", creativeword.chars);
     lookWordModule(".collaborative > strong", ".collaborative", ".collaborative-wrap > p", collaborativeword.chars);
+
+    //section5 등장연출
+    showSection5();
 }
+
+//요소 회전
 function rotateElement(ele, deg, time) {
     let currnetrotate = 0;
     setInterval(() => {
@@ -349,6 +394,8 @@ function rotateElement(ele, deg, time) {
         ele.style.transform = `rotate(${currnetrotate}deg)`;
     }, time);
 }
+
+//요소 가로길이 늘림
 function expandwidth(ele, amount, time) {
     let isExpanded = false;
     let originWidth = parseInt(getComputedStyle(ele).width, 10);
@@ -361,6 +408,18 @@ function expandwidth(ele, amount, time) {
         isExpanded = !isExpanded;
     }, time);
 }
+
+
+gsap.to('.section5__works__img', {
+    scrollTrigger:{
+        trigger:"#esteelauder",
+        start:"top bottom",
+        end:"bottom bottom",
+        scrub:true,
+        markers:true,
+    },
+    width:"80%"
+})
 
 function functionCursor() {
     const coordinates = {
@@ -419,11 +478,10 @@ function animateInit() {
     movesection2();
     section3fnc();
     section4fnc();
-    section5fnc();
+    skillsfnc();
 }
 
 function functions() {
-    reverseVideo();
     smoothScrolling();
     rotateElement(triangle, 90, 4600);
     rotateElement(shine1, 90, 2200);
